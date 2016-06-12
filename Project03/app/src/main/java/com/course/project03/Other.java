@@ -56,6 +56,10 @@ public class Other extends AppCompatActivity implements SensorEventListener {
         //}
         double x = event.values[0]; //positive direction (x axis): from right side to the left side of the tablet
         //Log.v("degree",""+degree);
+        if(x>9.80665)
+            x = 9.80665;
+        else if(x<-9.80665)
+            x = -9.80665;
         double degree = Math.toDegrees(Math.acos(x/9.80665));
 
         this.image.setRotation(this.rotate+(float)degree-90);
@@ -92,7 +96,7 @@ public class Other extends AppCompatActivity implements SensorEventListener {
 
     private void setSensor(){
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
     @Override
