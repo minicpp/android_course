@@ -28,11 +28,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); //R is an automatically generated class for resources
 
         button = (Button)findViewById(R.id.button); //find the button in the view layout "activity_mail.xml"
-        button.setOnClickListener(new ButtonClick());   //bind an event class to the button
+        //button.setOnClickListener(new ButtonClick());   //bind an event class to the button
 
-        loadImage();
-
-        setRotateButton();
+        /*loadImage();
+        setRotateButton();*/
     }
 
     private void loadImage(){
@@ -58,35 +57,37 @@ public class MainActivity extends AppCompatActivity {
         buttonRotate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rotate += 30;
-                image.setRotation(rotate);
+                /*rotate += 30;
+                image.setRotation(rotate);*/
             }
         });
     }
 
-}
+    class AlertDialogGetClick implements DialogInterface.OnClickListener{
 
-class AlertDialogGetClick implements DialogInterface.OnClickListener{
-
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
-        dialog.cancel();    //hide the dialog
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            dialog.cancel();    //hide the dialog
+        }
     }
-}
 
 
-class ButtonClick implements View.OnClickListener{
+    class ButtonClick implements View.OnClickListener{
 
-    private AlertDialog.Builder myDialog;   //the instance of an alert dialog
-    @Override
-    public void onClick(View v) {
-        myDialog = new AlertDialog.Builder(v.getContext()); //create an instance of an alert dialog
-        myDialog.setTitle("My first android App");  //set title of the alert dialog
-        myDialog.setMessage("Hello, this is Android tutorial.");    //Change it to your name
-        myDialog.setCancelable(true);   //what will happen if you change it to false
-        myDialog.setPositiveButton("OK", new AlertDialogGetClick());    //set a button in the alert dialog
-        myDialog.create();  //ask operating system to prepare the dialog
-        myDialog.show();    //show the dialog to the front of view
+        private AlertDialog.Builder myDialog;   //the instance of an alert dialog
+        @Override
+        public void onClick(View v) {
+            myDialog = new AlertDialog.Builder(v.getContext()); //create an instance of an alert dialog
+            myDialog.setTitle("My first android App");  //set title of the alert dialog
+            myDialog.setMessage("Hello, this is Android tutorial.");    //Change it to your name
+            myDialog.setCancelable(true);   //what will happen if you change it to false
+            myDialog.setPositiveButton("OK", new AlertDialogGetClick());    //set a button in the alert dialog
+            myDialog.create();  //ask operating system to prepare the dialog
+            myDialog.show();    //show the dialog to the front of view
+        }
     }
+
 }
+
+
 

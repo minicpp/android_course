@@ -9,10 +9,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +19,11 @@ import android.widget.ImageView;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
+/**
+ * Created by wynter on 6/12/2016.
+ * This file contains the correct solution for your reference
+ */
+public class Other extends AppCompatActivity implements SensorEventListener {
 
 
     private Button button;  //instance of the button object
@@ -53,9 +56,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         //}
         double x = event.values[0]; //positive direction (x axis): from right side to the left side of the tablet
         //Log.v("degree",""+degree);
-        /*double degree = Math.toDegrees(Math.acos(x/9.80665));
+        double degree = Math.toDegrees(Math.acos(x/9.80665));
 
-        this.image.setRotation(this.rotate+(float)degree-90);*/
+        this.image.setRotation(this.rotate+(float)degree-90);
     }
 
     private void loadImage(){
@@ -136,5 +139,4 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
 }
-
 
