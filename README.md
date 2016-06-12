@@ -1,4 +1,4 @@
-# android course
+# Android course
 
 ## Project 01
 Create an alert dialog
